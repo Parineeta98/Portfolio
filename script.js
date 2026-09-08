@@ -70,32 +70,6 @@ const PROJECT_CATEGORIES = [
                         codeUrl: "https://github.com/Parineeta98/Customer-Segmentation-Analysis"
              }
                  ]
-   },
-   {
-          category: "Academic",
-          projects: [
-             {
-                        title: "Flanker Task",
-                        blurb: "Built a Python implementation of the Flanker inhibitory-control paradigm (Eriksen & Eriksen, 1974), testing selective attention using shape-based congruent, incongruent, and neutral stimuli.",
-                        tags: ["Python"],
-                        demoUrl: "",
-                        codeUrl: "https://github.com/Parineeta98/Flanker-task"
-             },
-             {
-                        title: "Reports",
-                        blurb: "A collection of written research reports, including a literature thesis review and an EEG replication study testing the relationship between the N200 component and Visual Encoding Time in an n-back task.",
-                        tags: ["JASP", "Statsmodels", "MNE"],
-                        demoUrl: "",
-                        codeUrl: "https://github.com/Parineeta98/Reports"
-             },
-             {
-                        title: "Hippocampal Microcircuit Model",
-                        blurb: "Master's thesis: built a computational model (Brian Simulator) of a hippocampal pyramidal cell and interneuron to study how synaptic delays disrupt theta-rhythm synchrony — relevant to demyelination-related cognitive effects.",
-                        tags: ["Python", "Brian Simulator", "NumPy", "SciPy"],
-                        demoUrl: "",
-                        codeUrl: "https://github.com/Parineeta98/Hippocampal-Microcircuit-Model-of-Pyramidal-Cell-and-Interneuron"
-             }
-                 ]
    }
    ];
 
