@@ -197,33 +197,52 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; }
 }
 
 /* ===== About ===== */
-.about-grid {
-     display: grid;
-     grid-template-columns: 1.3fr 1fr;
-     gap: 56px;
-     align-items: start;
-}
-.about-grid p { color: var(--navy-600); margin-top: 16px; max-width: 58ch; }
-.about-grid p:first-of-type { margin-top: 24px; }
+.about-content { margin-top: 24px; max-width: 68ch; }
+.about-content p { color: var(--navy-600); margin-top: 16px; }
+.about-content p:first-child { margin-top: 0; }
 
-.about-facts { display: flex; flex-direction: column; gap: 16px; }
-.fact-card {
+/* ===== Experience ===== */
+.experience-list {
+     margin-top: 40px;
      display: flex;
-     align-items: baseline;
-     gap: 16px;
-     padding: 20px;
+     flex-direction: column;
+     gap: 20px;
+}
+.experience-item {
+     padding: 24px 28px;
      border-radius: var(--radius);
      background: var(--paper);
      border: 1px solid rgba(15, 23, 42, 0.06);
 }
-.fact-num {
-     font-family: var(--font-display);
-     font-weight: 700;
-     font-size: 1.3rem;
+.experience-top {
+     display: flex;
+     align-items: baseline;
+     justify-content: space-between;
+     flex-wrap: wrap;
+     gap: 8px 20px;
+}
+.experience-top h3 {
+     font-size: 1.05rem;
+     color: var(--navy-950);
+}
+.experience-date {
+     font-size: 0.85rem;
+     font-weight: 600;
+     color: var(--accent-dark);
+     white-space: nowrap;
+}
+.experience-org {
+     margin-top: 4px;
+     font-size: 0.9rem;
+     font-weight: 600;
      color: var(--accent-warm);
 }
-.fact-card p { color: var(--navy-800); font-size: 0.95rem; }
-
+.experience-desc {
+     margin-top: 10px;
+     color: var(--navy-600);
+     font-size: 0.95rem;
+     max-width: 68ch;
+}
 /* ===== Projects ===== */
 .project-category { margin-top: 44px; }
 .project-category:first-child { margin-top: 0; }
@@ -339,12 +358,10 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; }
 .footer-inner { color: var(--navy-600); font-size: 0.88rem; }
 
 /* ===== Responsive ===== */
-@media (max-width: 860px) {
-     .about-grid { grid-template-columns: 1fr; }
-}
-
 @media (max-width: 720px) {
-     .nav {
+     .experience-top { flex-direction: column; gap: 4px; }
+   
+.nav {
             position: absolute;
             top: 72px;
             left: 0; right: 0;
