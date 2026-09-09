@@ -245,7 +245,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; color: var(--i
      text-align: center;
 }
 .section-sub {
-     margin-top: 12px;
+     margin: 12px auto 0;
      color: var(--ink-dim);
      max-width: 60ch;
 }
@@ -434,12 +434,13 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; color: var(--i
 .skill-group .tag-list { gap: 10px; }
 
 /* ===== Contact ===== */
-.contact-inner { text-align: left; }
+.contact-inner { text-align: center; }
 .contact-links {
      margin-top: 30px;
      display: flex;
      gap: 16px;
      flex-wrap: wrap;
+     justify-content: center;
 }
 
 /* ===== Footer ===== */
