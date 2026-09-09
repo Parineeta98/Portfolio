@@ -87,7 +87,7 @@ function renderProjectCard(p) {
          <article class="project-card">
                <div class="project-thumb">${initials(p.title)}</div>
                      <div class="project-body">
-                             <h3>${p.title}</h3>
+                             <div class="project-thumb"><span>${initials(p.title)}</span></div>
                                      <p>${p.blurb}</p>
                                              <ul class="tag-list">
                                                        ${p.tags.map((t) => `<li>${t}</li>`).join("")}
