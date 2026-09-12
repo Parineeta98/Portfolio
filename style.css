@@ -397,13 +397,27 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; color: var(--i
 
 .project-links {
      display: flex;
-     gap: 14px;
+     gap: 10px;
      margin-top: 4px;
-     font-size: 0.88rem;
-     font-weight: 600;
+     flex-wrap: wrap;
 }
-.project-links a { color: var(--teal-light); }
-.project-links a:hover { text-decoration: underline; }
+.project-links a {
+     display: inline-flex;
+     align-items: center;
+     font-size: 0.85rem;
+     font-weight: 700;
+     padding: 8px 16px;
+     border-radius: 999px;
+     color: var(--teal-light);
+     background: rgba(20, 184, 166, 0.1);
+     border: 1px solid rgba(20, 184, 166, 0.4);
+     transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+.project-links a:hover {
+     background: rgba(20, 184, 166, 0.2);
+     border-color: var(--teal);
+     transform: translateY(-1px);
+}
 .placeholder-badge {
      align-self: flex-start;
      font-size: 0.72rem;
