@@ -19,7 +19,7 @@ const PROJECT_CATEGORIES = [
              {
                         title: "Cognitive Decline Monitoring (OASIS-2)",
                         blurb: "Analyzed 373 longitudinal MRI visits across 150 subjects to flag dementia progression patterns, quantifying a 7x variation in brain-volume decline that led to a switch from fixed-interval to individualized monitoring.",
-                        tags: ["Python", "Azure SQL", "Power BI"],
+                        tags: ["Python", "Pandas", "Seaborn", "Azure SQL", "Power BI", "DAX"],
                         visual: "line-down",
                         demoUrl: "",
                         codeUrl: "https://github.com/Parineeta98/Cognitive-Decline-Monitoring"
@@ -27,7 +27,7 @@ const PROJECT_CATEGORIES = [
              {
                         title: "Hospital Readmission Risk Analysis",
                         blurb: "Built an end-to-end pipeline analyzing 101K+ hospital encounters to identify drivers of 30-day diabetic readmission, then trained a logistic regression risk model (AUC 0.607) powering a daily Power BI discharge-planning watchlist.",
-                        tags: ["Python", "scikit-learn", "Azure SQL", "Power BI"],
+                        tags: ["Python", "Pandas", "scikit-learn", "Statsmodels", "Azure SQL", "Power BI"],
                         visual: "bar",
                         demoUrl: "",
                         codeUrl: "https://github.com/Parineeta98/Hospital-Readmission-Risk-Analysis"
@@ -46,9 +46,9 @@ const PROJECT_CATEGORIES = [
           category: "Finance & Marketing",
           projects: [
              {
-                        title: "Retail Sales & Customer Segmentation Analysis",
+                        title: "Retail Sales Analysis",
                         blurb: "Analyzed 1,000+ retail transactions in Power BI to uncover seasonal revenue patterns, identifying two under-targeted high-value customer segments and turning them into a segment-specific marketing strategy.",
-                        tags: ["Power BI", "DAX", "Power Query"],
+                        tags: ["Power BI", "DAX"],
                         visual: "donut",
                         demoUrl: "",
                         codeUrl: "https://github.com/Parineeta98/Retail-Sales-Analysis"
@@ -56,7 +56,7 @@ const PROJECT_CATEGORIES = [
              {
                         title: "A/B Testing & User Engagement Analysis",
                         blurb: "Simulated a product analytics A/B test in SQL and Tableau, finding a statistically significant conversion uplift (2.55% vs. 1.79%, p < 0.05) and that high-activity users convert up to 15x more than low-activity users.",
-                        tags: ["SQL Server", "Tableau", "Excel"],
+                        tags: ["SQL Server", "Tableau"],
                         visual: "bar-compare",
                         demoUrl: "",
                         codeUrl: "https://github.com/Parineeta98/A-B-Testing"
@@ -72,7 +72,7 @@ const PROJECT_CATEGORIES = [
              {
                         title: "Bank Customer Segmentation (K-Means)",
                         blurb: "Applied K-means clustering to segment bank customers by balance, purchases, credit, and payment behavior, achieving 96% accuracy in predicting customer segments.",
-                        tags: ["NumPy", "Pandas", "Seaborn", "scikit-learn"],
+                        tags: ["Python", "Pandas", "NumPy", "SciPy", "scikit-learn", "Seaborn", "Excel", "Git"],
                         visual: "scatter",
                         demoUrl: "",
                         codeUrl: "https://github.com/Parineeta98/Customer-Segmentation-Analysis"
