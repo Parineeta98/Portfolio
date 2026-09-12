@@ -372,7 +372,7 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; color: var(--i
 }
 .project-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .project-body h3 { font-size: 1.15rem; color: var(--ink); }
-.project-body p { color: var(--ink-dim); font-size: 0.94rem; flex: 1; }
+.project-body p { color: var(--ink-dim); font-size: 0.94rem; }
 
 .tag-list {
      display: flex;
