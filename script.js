@@ -163,9 +163,16 @@ function initials(title) {
        .join("");
 }
 
+function slugify(str) {
+     return str
+       .toLowerCase()
+       .replace(/[^a-z0-9]+/g, "-")
+       .replace(/^-+|-+$/g, "");
+}
+
 function renderProjectCard(p) {
      return `
-         <article class="project-card">
+         <article class="project-card" id="${slugify(p.title)}">
                <div class="project-thumb">${chartThumb(p.visual)}</div>
                      <div class="project-body">
                              <h3>${p.title}</h3>
@@ -224,7 +231,7 @@ function getProjectsForSkill(skill) {
      PROJECT_CATEGORIES.forEach((cat) => {
           cat.projects.forEach((p) => {
                 if (p.tags.some((tag) => skillMatchesTag(skill, tag))) {
-                     matches.push(p.title);
+                     matches.push({ title: p.title, id: slugify(p.title) });
                 }
           });
      });
@@ -238,7 +245,7 @@ function renderSkillDropdown(skill) {
      }
      return `
           <p class="skill-dropdown-title">Used in</p>
-          <ul>${projects.map((title) => `<li>${title}</li>`).join("")}</ul>
+          <ul>${projects.map((p) => `<li><a href="#${p.id}" class="skill-dropdown-link">${p.title} →</a></li>`).join("")}</ul>
      `;
 }
 

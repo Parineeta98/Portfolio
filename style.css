@@ -336,9 +336,11 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; color: var(--i
      border: 1px solid var(--border);
      display: flex;
      flex-direction: column;
+     scroll-margin-top: 88px;
      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 .section-alt .project-card { background: var(--surface-alt); }
+.project-card:target { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25); }
 .project-card:hover {
      transform: translateY(-6px);
      box-shadow: var(--shadow-md);
@@ -485,8 +487,12 @@ h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; color: var(--i
 .skill-dropdown li {
      font-size: 0.92rem;
      font-weight: 600;
-     color: var(--ink);
 }
+.skill-dropdown-link {
+     color: var(--ink);
+     transition: color 0.2s ease;
+}
+.skill-dropdown-link:hover { color: var(--teal-light); }
 .skill-dropdown-empty {
      font-size: 0.9rem;
      color: var(--ink-dim);
