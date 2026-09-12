@@ -9,8 +9,10 @@
      blurb       - 1-2 sentence summary (problem -> approach -> outcome)
      tags        - array of tool/tech strings
      visual      - key into CHART_SVGS picking the thumbnail chart style
-     demoUrl     - link to a live demo/dashboard (optional, omit or set "")
-     codeUrl     - link to the GitHub repo (optional, omit or set "")
+     demoUrl     - currently unused (no per-card demo link is rendered)
+     codeUrl     - link to the GitHub repo; when set, the whole card
+                   becomes a link to it (omit or set "" for a plain,
+                   non-clickable card)
    ========================================================= */
 const PROJECT_CATEGORIES = [
    {
@@ -171,8 +173,10 @@ function slugify(str) {
 }
 
 function renderProjectCard(p) {
+     const Tag = p.codeUrl ? "a" : "article";
+     const linkAttrs = p.codeUrl ? `href="${p.codeUrl}" target="_blank" rel="noopener"` : "";
      return `
-         <article class="project-card" id="${slugify(p.title)}">
+         <${Tag} class="project-card" id="${slugify(p.title)}" ${linkAttrs}>
                <div class="project-thumb">${chartThumb(p.visual)}</div>
                      <div class="project-body">
                              <h3>${p.title}</h3>
@@ -180,13 +184,9 @@ function renderProjectCard(p) {
                                              <ul class="tag-list">
                                                        ${p.tags.map((t) => `<li>${t}</li>`).join("")}
                                                                </ul>
-                                                                       <div class="project-links">
-                                                                                 ${p.demoUrl ? `<a href="${p.demoUrl}" target="_blank" rel="noopener">Live demo →</a>` : ""}
-                                                                                           ${p.codeUrl ? `<a href="${p.codeUrl}" target="_blank" rel="noopener">Code →</a>` : ""}
-                                                                                                   </div>
-                                                                                                         </div>
-                                                                                                             </article>
-                                                                                                               `;
+                                                                       </div>
+                                                                             </${Tag}>
+                                                                               `;
 }
 
 function renderProjects() {
