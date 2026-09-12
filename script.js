@@ -196,6 +196,101 @@ function renderProjects() {
                                       `).join("");
 }
 
+/* =========================================================
+   Skill filter
+   Clicking a skill button in the Skills section filters the
+   Projects grid down to cards tagged with that skill. Matching is
+   normalized (case/punctuation-insensitive) and substring-based so
+   e.g. "SQL" also matches "Azure SQL" / "SQL Server", with a couple
+   of explicit aliases for tags that use different wording (SKLearn
+   vs. scikit-learn).
+   ========================================================= */
+const SKILL_ALIASES = { sklearn: "scikitlearn" };
+
+function normalizeSkill(str) {
+     return str.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function skillMatchesTag(skill, tag) {
+     const skillNorm = normalizeSkill(skill);
+     const s = SKILL_ALIASES[skillNorm] || skillNorm;
+     const t = normalizeSkill(tag);
+     return t === s || t.includes(s) || s.includes(t);
+}
+
+let activeSkillFilter = null;
+
+function applyProjectFilter(skill) {
+     const cards = [...document.querySelectorAll("#projectGrid .project-card")];
+     cards.forEach((card) => {
+          const tags = [...card.querySelectorAll(".tag-list li")].map((li) => li.textContent);
+          const matches = !skill || tags.some((tag) => skillMatchesTag(skill, tag));
+          card.style.display = matches ? "" : "none";
+     });
+
+     document.querySelectorAll("#projectGrid .project-category").forEach((cat) => {
+          const anyVisible = [...cat.querySelectorAll(".project-card")].some(
+                (c) => c.style.display !== "none"
+          );
+          cat.style.display = anyVisible ? "" : "none";
+     });
+
+     const bar = document.getElementById("projectFilterBar");
+     const label = document.getElementById("projectFilterLabel");
+     let empty = document.getElementById("projectFilterEmpty");
+     const grid = document.getElementById("projectGrid");
+
+     if (!skill) {
+          if (bar) bar.hidden = true;
+          if (empty) empty.hidden = true;
+          return;
+     }
+
+     if (bar) bar.hidden = false;
+     if (label) label.textContent = skill;
+
+     const anyVisible = cards.some((c) => c.style.display !== "none");
+     if (!anyVisible) {
+          if (!empty) {
+                empty = document.createElement("p");
+                empty.id = "projectFilterEmpty";
+                empty.className = "project-filter-empty";
+                grid.appendChild(empty);
+          }
+          empty.textContent = `No projects tagged with ${skill} yet — but it's part of my toolkit.`;
+          empty.hidden = false;
+     } else if (empty) {
+          empty.hidden = true;
+     }
+}
+
+function setActiveSkill(skill) {
+     activeSkillFilter = skill;
+     document.querySelectorAll(".skill-tag").forEach((btn) => {
+          btn.classList.toggle("active", btn.textContent.trim() === skill);
+     });
+     applyProjectFilter(skill);
+}
+
+function initSkillFilters() {
+     document.querySelectorAll(".skill-tag").forEach((btn) => {
+          btn.addEventListener("click", () => {
+                const skill = btn.textContent.trim();
+                if (activeSkillFilter === skill) {
+                     setActiveSkill(null);
+                } else {
+                     setActiveSkill(skill);
+                     document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" });
+                }
+          });
+     });
+
+     const clearBtn = document.getElementById("clearFilterBtn");
+     if (clearBtn) {
+          clearBtn.addEventListener("click", () => setActiveSkill(null));
+     }
+}
+
 function initNav() {
      const toggle = document.getElementById("navToggle");
      const nav = document.getElementById("nav");
@@ -223,4 +318,5 @@ document.addEventListener("DOMContentLoaded", () => {
      renderProjects();
      initNav();
      initFooterYear();
+     initSkillFilters();
 });
