@@ -33,14 +33,6 @@ const PROJECT_CATEGORIES = [
                         visual: "bar",
                         demoUrl: "",
                         codeUrl: "https://github.com/Parineeta98/Hospital-Readmission-Risk-Analysis"
-             },
-             {
-                        title: "Covid Project",
-                        blurb: "Explored global COVID-19 case, death, and vaccination data in SQL — using CTEs, temp tables, window functions, and views to calculate infection/death rates by country and rolling vaccination percentages.",
-                        tags: ["SQL"],
-                        visual: "area",
-                        demoUrl: "",
-                        codeUrl: "https://github.com/Parineeta98/Covid_Project"
              }
                  ]
    },
